@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Ripley Zhang</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">Ripley Zhang</a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="projects-page">
+  <a href="index.html" class="back-link">← Back to Home</a>
+
+  <section class="projects-hero">
+    <p class="eyebrow">Selected Work</p>
+    <h1>Projects</h1>
+    <p>
+      A collection of software, systems, and engineering projects I have built or contributed to.
+    </p>
+  </section>
+
+  <section id="factorio" class="project-detail">
+    <div class="project-detail-header">
+      <p class="project-label">Java Simulation System</p>
+
+      <h2>GUI-Based Factory Simulation System</h2>
+
+      <p class="project-date">Mar. 2026 - May 2026</p>
+
+      <p class="project-tech">
+        Java · Gradle · JUnit 5 · Mockito · Git · CI/CD · GUI · Client-Server Architecture
+      </p>
+
+      <div class="project-actions">
+        <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">GitHub</a>
+        <a href="#factorio-screenshots">Screenshots</a>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <h3>Overview</h3>
+      <p>
+        A Factorio-like Java factory simulation system with GUI and client/server support. The system
+        enables real-time building construction, road placement, resource production, delivery routing,
+        drone transport, waste handling, and save/load functionality.
+      </p>
+    </div>
+
+    <div class="project-section">
+      <h3>Key Features</h3>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h4>Factory Simulation</h4>
+          <p>Supports building construction, resource production, road networks, and delivery routing.</p>
+        </div>
+
+        <div class="feature-card">
+          <h4>Client/Server Support</h4>
+          <p>Synchronizes simulation state between backend logic and GUI clients in real time.</p>
+        </div>
+
+        <div class="feature-card">
+          <h4>Save and Load</h4>
+          <p>Uses DTO-based serialization to persist and restore complex simulation states.</p>
+        </div>
+
+        <div class="feature-card">
+          <h4>Testing</h4>
+          <p>Includes unit and integration tests with JUnit 5 and Mockito, achieving 90%+ coverage.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <h3>Technical Design</h3>
+      <p>
+        The system uses object-oriented design, DTO-based serialization, event-driven communication,
+        command patterns, service-layer architecture, and client/server state synchronization.
+      </p>
+    </div>
+
+    <div class="project-section">
+      <h3>My Contributions</h3>
+      <ul>
+        <li>Implemented modular simulation features using object-oriented design and service-layer architecture.</li>
+        <li>Developed DTO-based serialization for save/load workflows and client/server synchronization.</li>
+        <li>Wrote tests for simulation services, validators, DTO conversions, construction logic, and edge cases.</li>
+        <li>Contributed to Git workflow, pull requests, code reviews, CI/CD validation, Javadoc, and UML design.</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h3>Technical Challenges</h3>
+
+      <div class="challenge-grid">
+        <div class="challenge-card">
+          <h4>Complex State Management</h4>
+          <p>
+            The simulation needed to coordinate buildings, roads, inventories, delivery requests, drones,
+            and waste across real-time updates.
+          </p>
+        </div>
+
+        <div class="challenge-card">
+          <h4>Reliable Persistence</h4>
+          <p>
+            Save/load required careful DTO conversion and restoration because many simulation objects
+            reference each other.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="factorio-screenshots" class="project-section">
+      <h3>Screenshots</h3>
+
+      <div class="screenshot-grid">
+        <figure>
+          <img src="images/factorio-main-gui.png" alt="Main GUI of the factory simulation system">
+          <figcaption>Main GUI showing buildings, roads, and simulation state.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/factorio-construction.png" alt="Building construction and road placement">
+          <figcaption>Building construction and road placement with material costs.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+<section id="ssd-s3" class="project-detail">
+  <div class="project-detail-header">
+    <p class="project-label">Storage Systems</p>
+
+    <h2>SSD + S3 Hybrid Storage Architecture</h2>
+
+    <p class="project-date">Oct. 2022 – Jan. 2023</p>
+
+    <p class="project-tech">
+      Go · FUSE · Linux · AWS S3 · MinIO · Block Cache · Asynchronous Write-Back · LRU Eviction
+    </p>
+
+    <div class="project-actions">
+      <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">GitHub</a>
+      <a href="#ssd-s3-screenshots">Screenshots</a>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>Overview</h3>
+
+    <p>
+      SSD + S3 Hybrid Storage Architecture is a FUSE-based storage system written in Go. It exposes
+      AWS-compatible object storage as a local file system while using local SSD storage as a
+      block-level cache.
+    </p>
+
+    <p>
+      The system allows users to read and write remote S3 objects through normal file system
+      operations. Frequently accessed blocks are cached locally, modified blocks are tracked as dirty,
+      and asynchronous write-back workers flush updates to remote object storage.
+    </p>
+  </div>
+
+  <div class="project-section">
+    <h3>Key Features</h3>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>FUSE File System Interface</h4>
+        <p>
+          Mounted remote object storage as a local file system, allowing users to interact with S3
+          objects through standard Linux file operations.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>SSD-Backed Block Cache</h4>
+        <p>
+          Implemented block-level caching so repeated reads can be served from local SSD instead of
+          repeatedly fetching data from remote object storage.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Asynchronous Write-Back</h4>
+        <p>
+          Tracked dirty blocks and flushed modified data back to S3 asynchronously to reduce blocking
+          on write operations.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Capacity-Based Eviction</h4>
+        <p>
+          Added cache capacity management and LRU-style eviction to keep local cache usage within
+          configured limits.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>Technical Design</h3>
+
+    <p>
+      The system is built around a local block cache layered between the FUSE file system interface
+      and remote AWS-compatible object storage. Read operations first check whether the requested
+      block exists in the local cache. On a cache miss, the system fetches the corresponding byte range
+      from S3-compatible storage and persists it locally.
+    </p>
+
+    <p>
+      Write operations update local cache blocks and mark them as dirty. Dirty-block metadata is
+      persisted alongside cached block files, allowing the system to track which blocks need to be
+      written back to remote object storage. Background write-back workers then flush modified blocks
+      asynchronously.
+    </p>
+
+    <p>
+      To prevent unbounded local disk usage, the cache manager maintains capacity accounting and
+      evicts clean blocks based on access history. This design improves repeated large-file workload
+      performance while preserving the ability to access objects through a normal file system path.
+    </p>
+  </div>
+
+  <div class="project-section">
+    <h3>My Contributions</h3>
+
+    <ul>
+      <li>
+        Built a FUSE-based hybrid storage system that exposes AWS-compatible object storage as a
+        local Linux file system.
+      </li>
+      <li>
+        Implemented SSD-backed block-level caching, cache metadata persistence, and dirty-block
+        tracking.
+      </li>
+      <li>
+        Developed asynchronous write-back logic to flush modified blocks from local cache to remote
+        object storage.
+      </li>
+      <li>
+        Added cache capacity management and LRU-style eviction for local SSD cache control.
+      </li>
+      <li>
+        Debugged cache accounting and eviction bugs using logs, workload experiments, and Linux
+        command-line profiling tools.
+      </li>
+      <li>
+        Improved reliability and performance stability for repeated large-file read/write workloads by
+        fixing cache replacement and write-back edge cases.
+      </li>
+    </ul>
+  </div>
+
+  <div class="project-section">
+    <h3>Technical Challenges</h3>
+
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <h4>Cache Consistency</h4>
+        <p>
+          The system needed to keep local cached blocks, dirty metadata, and remote S3 objects
+          consistent across reads, writes, flushes, and remounts.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Write-Back Edge Cases</h4>
+        <p>
+          Modified blocks had to be tracked and reassembled correctly before being flushed back to
+          object storage, especially for repeated writes to large files.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Capacity Accounting</h4>
+        <p>
+          Cache size accounting needed to remain accurate when blocks were inserted, replaced,
+          evicted, or flushed by background workers.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Eviction Stability</h4>
+        <p>
+          LRU-style eviction required careful handling to avoid removing protected or recently used
+          blocks during active read/write workloads.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="ssd-s3-screenshots" class="project-section">
+    <h3>Screenshots</h3>
+
+    <div class="screenshot-grid">
+      <figure>
+        <img src="images/ssd-s3-mount.png" alt="FUSE-mounted hybrid storage file system">
+        <figcaption>
+          FUSE mount exposing remote S3-compatible object storage as a local Linux file system.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/ssd-s3-cache.png" alt="SSD cache directory with block files and metadata">
+        <figcaption>
+          SSD-backed block cache storing cached data blocks and metadata files.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/ssd-s3-logs.png" alt="Cache eviction and write-back logs">
+        <figcaption>
+          Debug logs showing cache capacity management, eviction, and write-back behavior.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/ssd-s3-benchmark.png" alt="Large file read and write workload experiment">
+        <figcaption>
+          Workload experiments used to evaluate repeated large-file read/write performance.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>What I Learned</h3>
+
+    <p>
+      This project strengthened my understanding of Linux file systems, FUSE, object storage,
+      block-level caching, asynchronous write-back, cache eviction, and performance debugging. It
+      also gave me hands-on experience building a storage system that connects low-level file system
+      operations with cloud-style remote storage.
+    </p>
+  </div>
+</section>
+
+</main>
+
+  <footer class="site-footer">
+    <p>© 2026 Ripley Zhang</p>
+  </footer>
+</body>
+</html>
