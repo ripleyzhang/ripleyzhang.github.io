@@ -351,6 +351,212 @@
   </div>
 </section>
 
+<section id="xv6-rcu" class="project-detail">
+  <div class="project-detail-header">
+    <p class="project-label">Operating Systems</p>
+
+    <h2>Read-Copy-Update in xv6 – OS Kernel Project</h2>
+
+    <p class="project-date">Sept. 2025 – Nov. 2025</p>
+
+    <p class="project-tech">
+      C · xv6 · Synchronization · Concurrency · Kernel Programming · Performance Debugging
+    </p>
+
+    <div class="project-actions">
+      <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">GitHub</a>
+      <a href="#xv6-rcu-screenshots">Screenshots</a>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>Overview</h3>
+
+    <p>
+      Read-Copy-Update in xv6 is an operating systems kernel project that implements RCU-style
+      synchronization in the xv6 teaching kernel. The goal was to improve scalability for read-heavy
+      workloads by allowing readers to proceed with minimal synchronization overhead while writers
+      update shared data safely.
+    </p>
+
+    <p>
+      The project adapts concepts from Linux Read-Copy-Update methodology into a simpler teaching
+      OS environment. It focuses on per-CPU reader tracking, grace-period detection, deferred memory
+      reclamation, and correctness under concurrent kernel access.
+    </p>
+  </div>
+
+  <div class="project-section">
+    <h3>Key Features</h3>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>RCU-Style Synchronization</h4>
+        <p>
+          Implemented Read-Copy-Update synchronization to reduce contention for read-heavy kernel
+          workloads.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Per-CPU Reader Tracking</h4>
+        <p>
+          Designed per-CPU reader state tracking so the kernel can determine whether active readers
+          are still accessing old data versions.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Grace-Period Detection</h4>
+        <p>
+          Implemented logic to detect when all pre-existing readers have exited their read-side
+          critical sections.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Deferred Reclamation</h4>
+        <p>
+          Added deferred memory reclamation so updated or removed data is freed only after it is safe
+          to do so.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>Technical Design</h3>
+
+    <p>
+      Traditional locking can limit scalability when many kernel threads frequently read shared data.
+      This project uses an RCU-style approach: readers enter lightweight read-side critical sections,
+      writers publish updated data, and old data is reclaimed only after a grace period has passed.
+    </p>
+
+    <p>
+      The implementation tracks reader activity on a per-CPU basis. When a writer removes or replaces
+      shared data, the old version is not immediately freed. Instead, it is added to a deferred
+      reclamation path and released only after the kernel verifies that all readers that could have
+      observed the old version have completed.
+    </p>
+
+    <p>
+      This design required careful reasoning about concurrent access, memory lifetime, CPU-local
+      state, and kernel execution order. Debugging was performed using tracing, assertions, and
+      performance profiling to validate both correctness and scalability behavior.
+    </p>
+  </div>
+
+  <div class="project-section">
+    <h3>My Contributions</h3>
+
+    <ul>
+      <li>
+        Implemented Read-Copy-Update synchronization inside the xv6 kernel for read-heavy workloads.
+      </li>
+      <li>
+        Adapted core ideas from Linux RCU methodology into a simplified teaching OS kernel.
+      </li>
+      <li>
+        Designed per-CPU reader tracking to monitor active read-side critical sections.
+      </li>
+      <li>
+        Implemented grace-period detection to identify when old data versions can be safely reclaimed.
+      </li>
+      <li>
+        Added deferred memory reclamation to preserve correctness under concurrent access.
+      </li>
+      <li>
+        Debugged kernel-level synchronization issues using tracing, assertions, and performance
+        profiling.
+      </li>
+    </ul>
+  </div>
+
+  <div class="project-section">
+    <h3>Technical Challenges</h3>
+
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <h4>Kernel Concurrency Correctness</h4>
+        <p>
+          The implementation needed to ensure that readers could safely access shared data while
+          writers updated or removed old versions.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Grace-Period Reasoning</h4>
+        <p>
+          A key challenge was detecting when all readers that might have seen an old data version had
+          exited their read-side critical sections.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Memory Lifetime Management</h4>
+        <p>
+          Data could not be freed immediately after replacement, so deferred reclamation was required
+          to avoid use-after-free bugs.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Low-Level Debugging</h4>
+        <p>
+          Debugging required kernel-level tracing, assertions, and profiling because synchronization
+          bugs were timing-sensitive and difficult to reproduce.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="xv6-rcu-screenshots" class="project-section">
+    <h3>Screenshots</h3>
+
+    <div class="screenshot-grid">
+      <figure>
+        <img src="images/xv6-rcu-kernel.png" alt="xv6 kernel running with RCU implementation">
+        <figcaption>
+          xv6 kernel running with RCU-style synchronization enabled.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/xv6-rcu-tracing.png" alt="Kernel tracing output for RCU reader tracking">
+        <figcaption>
+          Kernel tracing output used to validate reader tracking and grace-period behavior.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/xv6-rcu-tests.png" alt="RCU correctness and stress test output">
+        <figcaption>
+          Correctness and stress tests for concurrent reader and writer workloads.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/xv6-rcu-performance.png" alt="Performance profiling results for RCU workload">
+        <figcaption>
+          Performance profiling for read-heavy workloads before and after RCU optimization.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>What I Learned</h3>
+
+    <p>
+      This project strengthened my understanding of kernel-level synchronization, concurrent memory
+      access, CPU-local state, deferred reclamation, and performance debugging. It also helped me
+      understand how production operating system concepts such as Linux RCU can be simplified and
+      adapted to a teaching kernel like xv6.
+    </p>
+  </div>
+</section>
+
 </main>
 
   <footer class="site-footer">
