@@ -557,6 +557,420 @@
   </div>
 </section>
 
+<section id="riscv-pipeline" class="project-detail">
+  <div class="project-detail-header">
+    <p class="project-label">Computer Architecture</p>
+
+    <h2>Parallelism in Pipelined CPU Based on RISC-V</h2>
+
+    <p class="project-date">Jan. 2024 – Mar. 2024</p>
+
+    <p class="project-tech">
+      Verilog · RISC-V · CPU Microarchitecture · RTL Simulation · Pipeline Control · Branch Prediction
+    </p>
+
+    <div class="project-actions">
+      <a href="https://github.com/ripleyzhang/Parallelism-in-Pipelined-CPU-Based-on-RISC-V" target="_blank">GitHub</a>
+      <a href="#riscv-pipeline-screenshots">Screenshots</a>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>Overview</h3>
+
+    <p>
+      Parallelism in Pipelined CPU Based on RISC-V is a computer architecture project focused on
+      designing and implementing a 5-stage pipelined RISC-V processor in Verilog. The processor
+      supports the classic instruction fetch, decode, execute, memory access, and write-back stages.
+    </p>
+
+    <p>
+      The project explores how instruction-level parallelism is achieved in a pipelined CPU and how
+      control logic is used to handle data hazards, control hazards, branch behavior, and interrupt
+      support.
+    </p>
+  </div>
+
+  <div class="project-section">
+    <h3>Key Features</h3>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>5-Stage RISC-V Pipeline</h4>
+        <p>
+          Implemented instruction fetch, decode, execute, memory access, and write-back stages in
+          Verilog.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Pipeline Hazard Handling</h4>
+        <p>
+          Designed control logic for data hazards and control hazards, including forwarding, stalling,
+          and pipeline redirection.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Dynamic Branch Prediction</h4>
+        <p>
+          Integrated BTB, PHT, and GHR-based branch prediction to reduce control hazard penalties.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>RTL Verification</h4>
+        <p>
+          Developed RTL testbenches and used simulation and waveform debugging to validate pipeline
+          behavior and instruction execution.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>Technical Design</h3>
+
+    <p>
+      The processor follows a standard 5-stage pipelined microarchitecture. Instructions flow through
+      the fetch, decode, execute, memory, and write-back stages, allowing multiple instructions to be
+      processed concurrently at different pipeline stages.
+    </p>
+
+    <p>
+      To preserve correctness under pipeline parallelism, the design includes hazard detection and
+      control logic. Data hazards are handled through forwarding and stalling, while control hazards
+      are handled through branch redirection and pipeline control mechanisms.
+    </p>
+
+    <p>
+      The processor also integrates dynamic branch prediction using a Branch Target Buffer, Pattern
+      History Table, and Global History Register. This allowed the project to analyze how branch
+      prediction affects control hazard penalties and overall pipeline execution behavior.
+    </p>
+  </div>
+
+  <div class="project-section">
+    <h3>My Contributions</h3>
+
+    <ul>
+      <li>
+        Designed and implemented a 5-stage pipelined RISC-V processor in Verilog.
+      </li>
+      <li>
+        Implemented instruction fetch, decode, execute, memory access, and write-back pipeline stages.
+      </li>
+      <li>
+        Designed pipeline control logic for data hazards, control hazards, forwarding, stalling,
+        branch redirection, branch handling, and interrupt support.
+      </li>
+      <li>
+        Integrated BTB, PHT, and GHR-based dynamic branch prediction.
+      </li>
+      <li>
+        Developed RTL testbenches to validate instruction execution, pipeline behavior, branch
+        prediction correctness, and control flow behavior.
+      </li>
+      <li>
+        Used simulation and waveform debugging to inspect pipeline state, diagnose control logic
+        issues, and verify execution correctness.
+      </li>
+    </ul>
+  </div>
+
+  <div class="project-section">
+    <h3>Technical Challenges</h3>
+
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <h4>Pipeline Correctness</h4>
+        <p>
+          The processor needed to preserve correct instruction execution while multiple instructions
+          were active in different pipeline stages.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Hazard Detection</h4>
+        <p>
+          Data and control hazards required careful forwarding, stalling, and pipeline redirection
+          logic to avoid incorrect register or memory updates.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Branch Prediction Behavior</h4>
+        <p>
+          BTB, PHT, and GHR logic had to be coordinated with branch resolution to evaluate prediction
+          correctness and reduce control hazard penalties.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Waveform Debugging</h4>
+        <p>
+          Debugging required inspecting RTL waveforms across pipeline stages to track instruction flow,
+          control signals, stalls, redirects, and branch outcomes.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="riscv-pipeline-screenshots" class="project-section">
+    <h3>Screenshots</h3>
+
+    <div class="screenshot-grid">
+      <figure>
+        <img src="images/riscv-pipeline-architecture.png" alt="RISC-V five-stage pipeline architecture diagram">
+        <figcaption>
+          5-stage RISC-V pipeline architecture, including fetch, decode, execute, memory, and write-back stages.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/riscv-pipeline-waveform.png" alt="RTL waveform simulation of the pipelined RISC-V CPU">
+        <figcaption>
+          RTL waveform simulation used to inspect pipeline registers, control signals, stalls, and redirects.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/riscv-branch-prediction.png" alt="Branch prediction behavior in RISC-V pipeline">
+        <figcaption>
+          Dynamic branch prediction behavior using BTB, PHT, and GHR structures.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/riscv-testbench-output.png" alt="RISC-V CPU testbench output">
+        <figcaption>
+          RTL testbench output validating instruction execution and pipeline correctness.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>What I Learned</h3>
+
+    <p>
+      This project strengthened my understanding of CPU microarchitecture, pipelined execution,
+      instruction-level parallelism, RTL design, hazard handling, dynamic branch prediction, and
+      waveform-based debugging. It also helped me connect computer architecture concepts with
+      concrete Verilog implementation and simulation workflows.
+    </p>
+  </div>
+</section>
+
+<section id="nemu-system" class="project-detail">
+  <div class="project-detail-header">
+    <p class="project-label">Computer Systems</p>
+
+    <h2>Computer System from Scratch / NEMU Hardware Emulator</h2>
+
+    <p class="project-date">Course Project / Systems Programming Practice</p>
+
+    <p class="project-tech">
+      C · NEMU · RISC-V/x86-style ISA Emulation · Abstract Machine · Nanos-lite · Navy-apps ·
+      Linux · GDB · Makefile · Systems Debugging
+    </p>
+
+    <div class="project-actions">
+      <a href="https://github.com/ripleyzhang/Proxy-Kernel-Environment-OS-Lab" target="_blank">GitHub</a>
+      <a href="#nemu-system-screenshots">Screenshots</a>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>Overview</h3>
+
+    <p>
+      Computer System from Scratch is a systems programming project based on the NEMU hardware
+      emulator and the NJU PA learning framework. The project builds and connects multiple layers of
+      a computer system, including instruction execution, runtime support, lightweight operating
+      system services, and user-level application workloads.
+    </p>
+
+    <p>
+      Instead of treating the CPU, runtime, operating system, and applications as isolated modules,
+      this project focuses on understanding how these layers interact. The final system can execute
+      programs on top of an emulated machine through a complete software stack.
+    </p>
+  </div>
+
+  <div class="project-section">
+    <h3>Key Features</h3>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>Hardware Emulator</h4>
+        <p>
+          Implemented and extended NEMU-style instruction execution, CPU state updates, memory access,
+          and program execution control.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Runtime Support</h4>
+        <p>
+          Connected the emulator with an Abstract Machine runtime layer that provides hardware
+          abstraction and basic execution support.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Lightweight OS Services</h4>
+        <p>
+          Integrated Nanos-lite operating system services, including program loading, basic system
+          calls, and runtime execution support.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h4>User-Level Workloads</h4>
+        <p>
+          Ran Navy-apps workloads on top of the stack to validate instruction execution, OS services,
+          and application-level behavior.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>Technical Design</h3>
+
+    <p>
+      The project is organized as a layered computer system. At the lowest level, the NEMU emulator
+      models the behavior of a target machine by maintaining CPU state, fetching and executing
+      instructions, accessing memory, and controlling program execution.
+    </p>
+
+    <p>
+      Above the emulator, the Abstract Machine layer provides a hardware abstraction interface. This
+      layer connects low-level machine behavior with higher-level runtime services, making it possible
+      to run operating system components and application workloads on the emulated platform.
+    </p>
+
+    <p>
+      Nanos-lite provides lightweight operating system functionality, including program loading and
+      basic system call handling. Navy-apps then serve as user-level workloads to test whether the
+      emulator, runtime, and OS layers work together correctly.
+    </p>
+  </div>
+
+  <div class="project-section">
+    <h3>My Contributions</h3>
+
+    <ul>
+      <li>
+        Implemented and extended a full-system emulation stack based on the NEMU hardware emulator.
+      </li>
+      <li>
+        Developed instruction execution logic, CPU state updates, memory access paths, and debugging
+        support in C.
+      </li>
+      <li>
+        Connected the emulator with the Abstract Machine runtime layer to support program execution
+        on the simulated platform.
+      </li>
+      <li>
+        Integrated Nanos-lite operating system services, including program loading and basic syscall
+        handling.
+      </li>
+      <li>
+        Ran Navy-apps workloads to validate the behavior of the emulator, runtime, and OS stack.
+      </li>
+      <li>
+        Used logs, assertions, GDB, Makefile workflows, and command-line debugging to diagnose
+        instruction execution and system integration issues.
+      </li>
+    </ul>
+  </div>
+
+  <div class="project-section">
+    <h3>Technical Challenges</h3>
+
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <h4>Instruction-Level Correctness</h4>
+        <p>
+          The emulator needed to correctly update CPU state, decode instructions, access memory, and
+          preserve architectural behavior across different program executions.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Cross-Layer Integration</h4>
+        <p>
+          Bugs could appear at the emulator, runtime, OS, or application layer, so debugging required
+          reasoning across the full system stack rather than only one module.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>System Call Behavior</h4>
+        <p>
+          User programs depended on correct OS service behavior, making syscall handling and program
+          loading important for end-to-end execution.
+        </p>
+      </div>
+
+      <div class="challenge-card">
+        <h4>Low-Level Debugging</h4>
+        <p>
+          Debugging required tracing instruction execution, inspecting memory and registers, using
+          assertions, and comparing expected behavior with actual runtime state.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="nemu-system-screenshots" class="project-section">
+    <h3>Screenshots</h3>
+
+    <div class="screenshot-grid">
+      <figure>
+        <img src="images/nemu-emulator-run.png" alt="NEMU emulator running a test program">
+        <figcaption>
+          NEMU hardware emulator running a test program through the simulated execution environment.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/nemu-instruction-trace.png" alt="Instruction trace output from the NEMU emulator">
+        <figcaption>
+          Instruction trace output used to debug CPU state updates and instruction execution.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/nanos-lite-boot.png" alt="Nanos-lite operating system running on the emulator">
+        <figcaption>
+          Nanos-lite OS services running on top of the emulated machine.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/navy-apps-workload.png" alt="Navy-apps workload running on the full system stack">
+        <figcaption>
+          Navy-apps workload used to validate emulator, runtime, OS, and application-level integration.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h3>What I Learned</h3>
+
+    <p>
+      This project strengthened my understanding of how a computer system works across multiple
+      layers, from instruction execution and memory access to runtime support, system calls, operating
+      system services, and user-level workloads. It also helped me build stronger debugging habits for
+      low-level systems, including tracing, assertions, register inspection, and cross-layer reasoning.
+    </p>
+  </div>
+</section>
+
 </main>
 
   <footer class="site-footer">
