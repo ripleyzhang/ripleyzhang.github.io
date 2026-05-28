@@ -17,9 +17,9 @@ export default class DataService {
         content: {
           paragraphs: [ 
             "Hi! I am an graduate student studying Electrical and Computer Engineering at Duke University, with an undergraduate background in Computer Science.",
-            "",
-            "The main technology I have been using is C/C++. But a few years ago I fell in love with Node.js and I use it for most of my side projects. Moreover, I am in a good relationship with React (this website runs on React btw) and fascinated by Computer Architecture and Embedded Systems.",
-            "Outside studying, I'll on traveling around the world or work out hard in gym for my next adventure.",
+            "I believe that friendly and respectful communication within a team is key to the company's success. With my experience in software development and system-level engineering, I think I would be a valuable asset to your project.",
+            "The main technology I have been using is low-level software engineering. I am in a good relationship with OS kernel. But recently I fell in love with React/Javascripts (this website runs on React btw), and makes some side-projects. I am also fascinated by Computer Architecture and Embedded Systems.",
+            "Outside studying, I am creating my own independent games. As a non-binary lesbian, I am pursuing to make contributions to Gender and Sexuality Diversity.",
           ],
           education: [
             {
@@ -72,14 +72,24 @@ export default class DataService {
               repo: 'https://github.com/ripleyzhang/RCU-in-xv6',
             },
             {
-              title: 'NEMU / Computer System from Scratch',
+              title: 'Proxy Kernel Environment OS Lab',
               description:
                 'Built and studied a computer system stack including NEMU emulator, Abstract Machine runtime, Nanos-lite OS services, and Navy-app workloads.',
               myRole:
                 'Implemented and debugged low-level system components across emulator, runtime, OS, and user applications.',
               techStack:
                 'C, RISC-V, NEMU, Operating Systems, Emulator',
-              repo: '',
+              repo: 'https://github.com/ripleyzhang/Proxy-Kernel-Environment-OS-Lab',
+            },
+            {
+              title: 'Pong Game on an FPGA in Verilog',
+              description:
+                'Built a Pong game on an FPGA-based processor platform using Verilog, integrating VGA display output and PS/2 keyboard input through memory-mapped I/O.',
+              myRole:
+                'Implemented modular RTL components for input handling, display control, game logic, and processor-peripheral communication.',
+              techStack:
+                'Verilog, FPGA, VGA, PS/2, Memory-Mapped I/O',
+              repo: 'https://github.com/ripleyzhang/Pong-Game-on-an-FPGA-in-Verilog',
             },
           ],
         },
