@@ -3,7 +3,7 @@ import React from 'react'
 function About({ content }) {
   return (
     <div className="notepad-content">
-      <h1>About</h1>
+      <h2>About</h2>
 
       {content.paragraphs.map((paragraph) => (
         <p key={paragraph}>{paragraph}</p>

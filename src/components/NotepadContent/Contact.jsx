@@ -19,7 +19,7 @@ function Contact({ content }) {
     const { email, emailText, socialText, social } = content;
     const mailto = `mailto:${email}`;
     return (
-        <div>
+        <div className="notepad-content">
             <h2>Let's have a chat!</h2>
             <p>{emailText}<a href={mailto}>{email}</a></p>
             <p>{socialText}</p>

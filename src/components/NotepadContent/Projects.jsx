@@ -10,7 +10,7 @@ const StyledLink = styled.a`
 function Projects({ content }) {
     const { projects } = content;
     return (
-        <div>
+        <div className="notepad-content">
             <h2>Projects</h2>
             {
                 projects.map((project, idx) => (

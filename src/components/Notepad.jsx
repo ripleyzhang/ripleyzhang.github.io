@@ -25,9 +25,18 @@ const TitleIcon = styled.img`
 
 const MenuBar = styled.div`
   display: flex;
-  gap: 24px;
-  padding: 4px 8px;
-`;
+  gap: 18px;
+  padding: 2px 4px;
+  font-size: 13px;
+`
+
+const MenuDivider = styled.div`
+  height: 2px;
+  margin: 4px 0 8px;
+
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+`
 
 const ContentPanel = styled.div`
   background: white;
@@ -84,7 +93,7 @@ function Notepad({ closeNotepad, selectedItem, isMobile }) {
           <span>File</span>
           <span>Edit</span>
         </MenuBar>
-
+      <MenuDivider />
         <div className="sunken-panel">
           <ContentPanel>
             <ContentFactory id={selectedItem.id} isMobile={isMobile} />

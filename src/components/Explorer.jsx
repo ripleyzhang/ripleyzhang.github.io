@@ -25,9 +25,18 @@ const TitleIcon = styled.img`
 
 const MenuBar = styled.div`
   display: flex;
-  gap: 24px;
-  padding: 4px 8px;
-`;
+  gap: 18px;
+  padding: 2px 4px;
+  font-size: 13px;
+`
+
+const MenuDivider = styled.div`
+  height: 2px;
+  margin: 4px 0 8px;
+
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+`
 
 const FilesPanel = styled.div`
   min-height: 220px;
@@ -77,7 +86,7 @@ function Explorer({ items, closeExplorer, openNotepad, isMobile }) {
           <span>Edit</span>
           <span>Help</span>
         </MenuBar>
-
+      <MenuDivider />
         <div className="sunken-panel">
           <FilesPanel>
             <FilesWrapper>
