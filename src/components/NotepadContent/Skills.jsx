@@ -1,34 +1,57 @@
 import React from 'react'
-import { ProgressBar } from '@react95/core'
 import styled from 'styled-components'
 
-const StyledSkill = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center
+const SkillsWrapper = styled.div`
+  padding: 8px;
 `
 
+const CategoryBlock = styled.div`
+  margin-bottom: 18px;
+`
 
-function Skills({ content, isMobile }) {
-    console.log(content)
-    const { hard, soft } = content;
-    return (
-        <div>
-            <h2>Technical Skills</h2>
-            {
-                hard.map((h, idx) => (
-                    <StyledSkill key={idx}>
-                        <p style={{ flex: 1 }}>{h.name}</p>
-                        <ProgressBar style={{ flex: 1 }} width={isMobile ? 150 : 200} percent={h.progress} />
-                    </StyledSkill>
-                ))
-            }
-            <br />
-            <h2>Interpersonal Skills</h2>
-            <p>{soft}</p>
+const CategoryTitle = styled.h3`
+  margin-bottom: 8px;
+`
 
-        </div>
-    )
+const SkillLine = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  line-height: 1.6;
+`
+
+const SkillText = styled.span`
+  white-space: nowrap;
+`
+
+function Skills({ content }) {
+  const { categories, soft } = content
+
+  return (
+    <SkillsWrapper>
+      <h2>Technical Skills</h2>
+
+      {categories.map((category, idx) => (
+        <CategoryBlock key={idx}>
+          <CategoryTitle>{category.name}</CategoryTitle>
+
+          <SkillLine>
+            {category.skills.map((skill, skillIdx) => (
+              <SkillText key={skillIdx}>
+                {skill}
+                {skillIdx < category.skills.length - 1 ? ',' : ''}
+              </SkillText>
+            ))}
+          </SkillLine>
+        </CategoryBlock>
+      ))}
+
+      <br />
+
+      <h2>Interpersonal Skills</h2>
+      <p>{soft}</p>
+    </SkillsWrapper>
+  )
 }
 
 export default Skills

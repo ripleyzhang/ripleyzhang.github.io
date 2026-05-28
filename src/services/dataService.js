@@ -16,8 +16,10 @@ export default class DataService {
         icon: aboutIcon,
         content: {
           paragraphs: [ 
-            'Hi! I am Ningjing Zhang, a computer engineering student interested in computer architecture, operating systems, storage systems, and hardware-software co-design.',
-            'I enjoy building systems projects that connect software and hardware, from Java simulations and storage systems to OS kernel synchronization and RISC-V CPU design.',
+            "Hi! I am an graduate student studying Electrical and Computer Engineering at Duke University, with an undergraduate background in Computer Science.",
+            "",
+            "The main technology I have been using is C/C++. But a few years ago I fell in love with Node.js and I use it for most of my side projects. Moreover, I am in a good relationship with React (this website runs on React btw) and fascinated by Computer Architecture and Embedded Systems.",
+            "Outside studying, I'll on traveling around the world or work out hard in gym for my next adventure.",
           ],
           education: [
             {
@@ -42,22 +44,22 @@ export default class DataService {
             {
               title: 'GUI-Based Factory Simulation System',
               description:
-                'A Java-based factory simulation system with GUI, client-server architecture, DTO-based save/load, construction logic, drones, waste handling, and command-driven simulation.',
+                'A Java-based factory simulation system with GUI, client-server support, buildings and roads construction logic, resource production, delivery routing, drones transport, waste handling, and DTO-based save/load functionality.',
               myRole:
-                'Implemented modular services, data synchronization, testing workflows, and project-level engineering features.',
+                'I worked efficiently in parallel with teammates by defining clear module boundaries, coordinating through Git workflows, and integrating features through code reviews and CI/CD validation.',
               techStack:
-                'Java, Gradle, JUnit, Mockito, GUI, Client-Server Architecture',
-              repo: '',
+                'Java, Gradle, JUnit, Mockito, Git, CI/CD, GUI, Client-Server Architecture',
+              repo: 'https://github.com/ripleyzhang/GUI-Based-Factory-Simulation-System',
             },
             {
               title: 'SSD + S3 Hybrid Storage Architecture',
               description:
-                'A FUSE-based hybrid file system exposing remote AWS-compatible object storage as a local file system with SSD-backed block cache.',
+                'A hybrid storage system exposing remote AWS-compatible object storage as a local file system based on FUSE with SSD-backed block cache.',
               myRole:
-                'Built caching, metadata persistence, dirty-block tracking, asynchronous write-back, and eviction logic.',
+                'Implemented metadata persistence, block-level caching, dirty-block tracking, asynchronous write-back, and capacity-based eviction to support reliable large-file read/write workloads.',
               techStack:
-                'Go, FUSE, Linux, AWS/MinIO, Caching, Asynchronous Write-Back',
-              repo: '',
+                'Go, FUSE, Linux, AWS, Caching, Asynchronous Write-Back',
+              repo: 'https://github.com/ripleyzhang/SSD-S3-Hybrid-Storage-Architecture',
             },
             {
               title: 'Read-Copy-Update in xv6',
@@ -67,7 +69,7 @@ export default class DataService {
                 'Designed per-CPU reader tracking, grace-period detection, and deferred memory reclamation.',
               techStack:
                 'C, xv6, Synchronization, Concurrency, Kernel Debugging',
-              repo: '',
+              repo: 'https://github.com/ripleyzhang/RCU-in-xv6',
             },
             {
               title: 'NEMU / Computer System from Scratch',
@@ -83,40 +85,62 @@ export default class DataService {
         },
       },
       {
-        id: 'skills',
-        name: 'Skills.txt',
-        icon: skillsIcon,
-        content: {
-          hard: [
-            {
-              name: 'Java',
-              progress: 90,
-            },
-            {
-              name: 'C',
-              progress: 85,
-            },
-            {
-              name: 'Go',
-              progress: 80,
-            },
-            {
-              name: 'React',
-              progress: 70,
-            },
-            {
-              name: 'Operating Systems',
-              progress: 80,
-            },
-            {
-              name: 'Computer Architecture',
-              progress: 75,
-            },
-          ],
-          soft:
-            'Teamwork, technical communication, debugging, independent learning, system-level thinking',
-        },
+  id: 'skills',
+  name: 'Skills.txt',
+  icon: skillsIcon,
+  content: {
+    categories: [
+      {
+        name: 'Software Engineering',
+        skills: [
+          'Java',
+          'Go',
+          'Python',
+          'React',
+          'JavaScript',
+          'TypeScript',
+          'SQL',
+          'AWS',
+          'Docker',      
+        ],
       },
+      {
+        name: 'Firmware Engineering',
+        skills: [
+          'C/C++',
+          'RTOS',
+          'Linux',
+          'low-level software engineering',
+          'Assembly',
+          'communication protocols',
+          'embedded systems(ESP32, OrangePi/RasberryPi)',
+          'FPGA'
+        ],
+      },
+      {
+        name: 'Hardware Engineering',
+        skills: [
+          'Verilog/SystemVerilog',
+          'RISC-V',
+          'FPGA',
+          'RTL Design',
+          'Verilog simulation',
+          'testbenches',
+        ],
+      },
+      {
+        name: 'Tools',
+        skills: [
+          'Git',
+          'Github Action',
+          'CI/CD',
+        ],
+      },
+    ],
+    soft:
+      'Teamwork, technical communication, debugging, independent learning, system-level thinking',
+  },
+  },
       {
         id: 'contact',
         name: 'Contact.txt',
