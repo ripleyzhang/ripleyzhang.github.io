@@ -1,29 +1,20 @@
 import React from 'react';
-import { GlobalStyle, ThemeProvider } from '@react95/core';
-import { createGlobalStyle } from 'styled-components';
+
+import '98.css';
+import './style.css';
 
 import DataService from './services/dataService';
 import DataContext from './contexts/dataContext';
-import Taskbar from './components/Taskbar';
 import Desktop from './components/Desktop';
 
 const dataService = new DataService();
 
-const BodyFontSizeOverride = createGlobalStyle`
-  body {
-    font-size: 15px;
-  }
-`;
-
-const App = () => (
-  <DataContext.Provider value={dataService}>
-    <ThemeProvider>
-      <GlobalStyle />
-      <BodyFontSizeOverride />
+function App() {
+  return (
+    <DataContext.Provider value={dataService}>
       <Desktop />
-      <Taskbar />
-    </ThemeProvider>
-  </DataContext.Provider>
-);
+    </DataContext.Provider>
+  );
+}
 
 export default App;

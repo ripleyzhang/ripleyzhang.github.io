@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Icon } from '@react95/core'
 
 const StyledItem = styled.div`
 	display: flex;
@@ -12,15 +11,22 @@ const StyledItem = styled.div`
 	padding: 10px 0;
 `;
 
+const StyledIcon = styled.img`
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+`;
+
 const StyledSpan = styled.span`
-	margin-top: 5px;
-`
+  margin-top: 5px;
+`;
 
 function File({ item, openNotepad }) {
 	const {name, icon } = item;
 	return (
 		<StyledItem>
-			<Icon
+			<StyledIcon
+			 	src={icon}
 				name={icon}
 				className="pointer"
 				onClick={() => openNotepad(item)}

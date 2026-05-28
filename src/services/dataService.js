@@ -1,26 +1,42 @@
 // src/services/dataService.js
-
+import aboutIcon from '../assets/w98_help_question_mark.ico';
+import resumeIcon from '../assets/w98_notepad_file.ico';
+import projectsIcon from '../assets/w98_console_prompt.ico';
+import skillsIcon from '../assets/w98_paint_old.ico'
+import contactIcon from '../assets/w98_address_book_user.ico';
 export default class DataService {
   _data = {
     projectRepo: 'https://github.com/ripleyzhang/ripleyzhang.github.io',
-    react95Repo: 'https://github.com/React95/React95',
+    css98Repo: 'https://github.com/jdan/98.css',
 
     items: [
       {
         id: 'about',
         name: 'About.txt',
-        icon: 'info_bubble',
+        icon: aboutIcon,
         content: {
-          paragraphs: [
-            'Hi! I am Ripley Zhang, a computer engineering student interested in computer architecture, operating systems, storage systems, and hardware-software co-design.',
+          paragraphs: [ 
+            'Hi! I am Ningjing Zhang, a computer engineering student interested in computer architecture, operating systems, storage systems, and hardware-software co-design.',
             'I enjoy building systems projects that connect software and hardware, from Java simulations and storage systems to OS kernel synchronization and RISC-V CPU design.',
+          ],
+          education: [
+            {
+              credit: 'Master of Engineering in Electrical and Computer Engineering',
+              place: 'Duke University, United States, Durham',
+              period: 'Aug 2025 - May 2027',
+            },
+            {
+              credit: 'Bachelor in Computer Science',
+              place: 'Huazhong University of Science and Technology, China, Wuhan',
+              period: 'Sept 2020 - June 2024',
+            },
           ],
         },
       },
       {
         id: 'projects',
         name: 'Projects.txt',
-        icon: 'flying_through_space_100',
+        icon: projectsIcon,
         content: {
           projects: [
             {
@@ -69,7 +85,7 @@ export default class DataService {
       {
         id: 'skills',
         name: 'Skills.txt',
-        icon: 'progman_11',
+        icon: skillsIcon,
         content: {
           hard: [
             {
@@ -104,7 +120,7 @@ export default class DataService {
       {
         id: 'contact',
         name: 'Contact.txt',
-        icon: 'inetcfg_2301',
+        icon: contactIcon,
         content: {
           emailText: 'You can reach me at ',
           email: 'nz75@duke.edu',
@@ -135,7 +151,7 @@ export default class DataService {
   getProjectInfo() {
     return {
       projectRepo: this._data.projectRepo,
-      react95Repo: this._data.react95Repo,
+      css98Repo: this._data.css98Repo,
     };
   }
 }

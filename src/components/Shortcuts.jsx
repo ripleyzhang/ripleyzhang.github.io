@@ -1,35 +1,28 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Icon } from '@react95/core'
-// import {startWebamp} from '../utils/startWebamp';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import explorerIcon from '../assets/w98_directory_explorer.ico';
 
-const StyledShorcut = styled.div`
-    margin-left: 20px;
-    margin-top: 20px;
-	align-items: center;
+const ShortcutPosition = styled.div`
+  left: 20px;
+  top: 20px;
 `;
 
 function Shortcuts({ openExplorer }) {
-    return (
-        <div>
-            <StyledShorcut>
-                <Icon
-                    className="pointer"
-                    name="windows_explorer"
-                    onClick={() => openExplorer()}
-                />
-                <div>Explorer</div>
-            </StyledShorcut>
-            <StyledShorcut>
-                <Icon
-                    className="pointer"
-                    name="media_cd"
-                    onClick={()=>startWebamp()}
-                />
-                <div>Media</div>
-            </StyledShorcut>
-        </div>
-    )
+  const [selectedShortcut, setSelectedShortcut] = useState(null);
+
+  return (
+    <ShortcutPosition
+      className={`desktop-icon ${selectedShortcut === 'explorer' ? 'selected' : ''}`}
+      onClick={() => setSelectedShortcut('explorer')}
+      onDoubleClick={openExplorer}
+      tabIndex={0}
+    >
+      <div className="icon-wrapper">
+        <img src={explorerIcon} alt="Explorer" />
+      </div>
+      <div className="title">Explorer</div>
+    </ShortcutPosition>
+  );
 }
 
-export default Shortcuts
+export default Shortcuts;
